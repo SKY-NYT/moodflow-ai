@@ -1,0 +1,147 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,600&display=swap");
+@import "tailwindcss";
+
+:root {
+  color-scheme: light;
+  font-family: Manrope, "Segoe UI", sans-serif;
+  --bg-page: #f6f5f2;
+  --surface: #ffffff;
+  --primary: #6b9080;
+  --primary-hover: #5a7d6e;
+  --secondary: #a3b18a;
+  --border: #dad7cd;
+  --text-primary: #1f2933;
+  --text-secondary: #6b7280;
+
+  --accent-peach: #f4a261;
+  --accent-pink: #e5989b;
+  --accent-lavender: #b5838d;
+  --accent-yellow: #ffd166;
+  --accent-peach-soft: #fdf0e7;
+  --accent-pink-soft: #fbeef0;
+  --accent-lavender-soft: #f7edf1;
+  --accent-yellow-soft: #fff7de;
+
+  --mood-happy: #ffd166;
+  --mood-calm: #95d5b2;
+  --mood-sad: #6c8ebf;
+  --mood-angry: #e76f51;
+  --mood-anxious: #b5838d;
+  --mood-neutral: #adb5bd;
+  --mood-happy-soft: #fff8df;
+  --mood-calm-soft: #ebf8f1;
+  --mood-sad-soft: #edf2f9;
+  --mood-angry-soft: #fceeea;
+  --mood-anxious-soft: #f6edf3;
+  --mood-neutral-soft: #f1f3f5;
+
+  --bg-soft: #f3f1eb;
+  --card-bg: var(--surface);
+  --card-border: var(--border);
+  --text-muted: var(--text-secondary);
+  --text-soft: var(--text-secondary);
+  --brand-strong: var(--primary);
+  --brand-soft: var(--secondary);
+  --brand-faint: #eef2e9;
+  --brand-ink: #3f5f50;
+
+  background: var(--bg-page);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --bg-page: #0f172a;
+    --surface: #1e293b;
+    --primary: #6d5d8c;
+    --primary-hover: #5f5279;
+    --secondary: #9f86c0;
+    --border: #334155;
+    --text-primary: #e2e8f0;
+    --text-secondary: #94a3b8;
+
+    --bg-soft: #182336;
+    --card-bg: var(--surface);
+    --card-border: var(--border);
+    --text-muted: var(--text-secondary);
+    --text-soft: var(--text-secondary);
+    --brand-strong: var(--primary);
+    --brand-soft: var(--secondary);
+    --brand-faint: #252f45;
+    --brand-ink: #d7c9eb;
+
+    --accent-peach-soft: #3c2e21;
+    --accent-pink-soft: #3f2d34;
+    --accent-lavender-soft: #3b2f3f;
+    --accent-yellow-soft: #3c3722;
+
+    --mood-happy-soft: #3c3722;
+    --mood-calm-soft: #24392f;
+    --mood-sad-soft: #23314a;
+    --mood-angry-soft: #432a25;
+    --mood-anxious-soft: #3c2f3c;
+    --mood-neutral-soft: #2c3640;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: var(--bg-page);
+  color: var(--text-primary);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3 {
+  font-family: Fraunces, Georgia, serif;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+input[type='range'] {
+  accent-color: var(--primary);
+}
+
+::selection {
+  background: color-mix(in srgb, var(--primary) 28%, transparent);
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none;
+}
