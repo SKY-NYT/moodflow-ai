@@ -151,8 +151,22 @@ export default function App() {
 
   return (
     <Shell>
-      <Header />
-      <main className="no-scrollbar mt-3 min-h-0 flex-1 overflow-hidden pr-1">
+      <div className="hidden md:block">
+        <Header />
+      </div>
+
+      <header className="mb-3 flex items-center justify-between gap-3 md:hidden">
+        <h1 className="text-(--text-primary)">MoodFlow</h1>
+        <button
+          type="button"
+          className="rounded-2xl bg-(--primary) px-4 py-2 text-sm font-semibold text-white transition active:scale-95"
+          onClick={openCreateModal}
+        >
+          New
+        </button>
+      </header>
+
+      <main className="no-scrollbar mt-2 min-h-0 min-w-0 flex-1 overflow-y-auto overflow-x-hidden pb-24 pr-1 md:mt-3 md:pb-0">
         {activeEntry ? (
           <DetailedReflectionPage
             entry={activeEntry}
@@ -199,6 +213,32 @@ export default function App() {
           </div>
         )}
       </main>
+
+      <nav className="fixed inset-x-0 bottom-3 z-40 px-4 md:hidden" aria-label="Mobile navigation">
+        <div className="mx-auto flex w-full max-w-md items-center justify-between rounded-2xl border border-(--card-border) bg-(--surface) p-2 shadow-lg backdrop-blur">
+          <button
+            type="button"
+            className="rounded-xl border border-(--card-border) bg-white px-4 py-2 text-sm font-medium text-(--text-muted)"
+            onClick={() => {
+              if (activeEntry) {
+                closeDetail();
+              } else {
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }
+            }}
+          >
+            {activeEntry ? "Back" : "Journal"}
+          </button>
+
+          <button
+            type="button"
+            className="rounded-xl bg-(--primary) px-4 py-2 text-sm font-semibold text-white"
+            onClick={openCreateModal}
+          >
+            Add Reflection
+          </button>
+        </div>
+      </nav>
 
       <Modal
         title={editingEntry ? "Edit Reflection" : "Create Reflection"}

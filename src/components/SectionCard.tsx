@@ -15,7 +15,7 @@ export function SectionCard({
   children,
 }: SectionCardProps) {
   return (
-    <section className={`${className}`}>
+    <section className={`min-w-0 ${className}`}>
       <div className="mb-4 flex items-start justify-between gap-4 border-b border-(--card-border) pb-3">
         <div>
           <h2 className="text-lg font-semibold text-(--text-primary)">

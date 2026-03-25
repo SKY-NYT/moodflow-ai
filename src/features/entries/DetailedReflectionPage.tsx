@@ -193,7 +193,7 @@ export function DetailedReflectionPage({
   }
 
   return (
-    <section className="mt-4 flex h-full min-h-0 flex-col overflow-hidden">
+    <section className="mt-3 flex h-full min-h-0 min-w-0 flex-col overflow-hidden md:mt-4">
       <div className="mb-3">
         <button
           type="button"
@@ -204,8 +204,8 @@ export function DetailedReflectionPage({
         </button>
       </div>
 
-      <div className="grid flex-none gap-5 xl:grid-cols-[minmax(0,1.3fr)_minmax(280px,0.9fr)] xl:items-start">
-        <article className="rounded-2xl border border-(--card-border) bg-(--surface) p-5">
+      <div className="grid min-w-0 flex-none gap-4 xl:grid-cols-[minmax(0,1.3fr)_minmax(280px,0.9fr)] xl:items-start">
+        <article className="min-w-0 rounded-2xl border border-(--card-border) bg-(--surface) p-4 md:p-5">
           <div className="mb-4 flex flex-wrap items-center justify-between gap-3 border-b border-(--card-border) pb-3">
             <h2 className="text-lg font-semibold text-(--text-primary)">
               {isEditing ? "Edit reflection" : "Reflection details"}
@@ -276,7 +276,7 @@ export function DetailedReflectionPage({
           )}
         </article>
 
-        <aside className="rounded-2xl border border-(--card-border) bg-(--surface) p-5">
+        <aside className="min-w-0 rounded-2xl border border-(--card-border) bg-(--surface) p-4 md:p-5">
           <div className="mb-4 border-b border-(--card-border) pb-3">
             <h3 className="text-lg font-semibold text-(--text-primary)">
               AI reflection for this entry
@@ -318,7 +318,7 @@ export function DetailedReflectionPage({
       </div>
 
       {hasAiContent ? (
-        <article className="mt-5 flex min-h-0 flex-1 flex-col rounded-2xl bg-white/80 p-5 ring-1 ring-(--card-border) transition hover:-translate-y-0.5 hover:ring-(--brand-soft)">
+        <article className="mt-4 flex min-h-0 min-w-0 flex-1 flex-col rounded-2xl bg-white/80 p-4 ring-1 ring-(--card-border) transition hover:-translate-y-0.5 hover:ring-(--brand-soft) md:mt-5 md:p-5">
           <div className="flex flex-wrap items-start justify-between gap-3">
             <div>
               <h3 className="text-lg font-semibold text-(--text-primary)">

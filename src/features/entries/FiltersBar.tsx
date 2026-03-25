@@ -40,6 +40,7 @@ export function FiltersBar({ onCreateReflection }: FiltersBarProps) {
           className="w-full rounded-2xl border border-(--card-border) bg-white px-4 py-3 outline-none transition focus:ring-2 focus:ring-(--brand-soft)"
           value={search}
           onChange={(event) => setSearch(event.target.value)}
+          inputMode="search"
           placeholder="Search title, note, or tag"
           aria-label="Search reflections"
         />

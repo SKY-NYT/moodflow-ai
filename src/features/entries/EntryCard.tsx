@@ -17,7 +17,7 @@ export function EntryCard({ entry, onEdit, onDelete, onOpen }: EntryCardProps) {
 
   return (
     <article
-      className="cursor-pointer rounded-2xl bg-white/80 p-5 ring-1 ring-(--card-border) transition hover:-translate-y-0.5 hover:ring-(--brand-soft)"
+      className="min-w-0 cursor-pointer rounded-2xl bg-white/80 p-4 ring-1 ring-(--card-border) transition hover:-translate-y-0.5 hover:ring-(--brand-soft) md:p-5"
       onClick={() => onOpen(entry)}
     >
       <div className="flex flex-wrap items-start justify-between gap-3">

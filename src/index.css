@@ -92,7 +92,7 @@ html,
 body,
 #root {
   height: 100%;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 body {
@@ -112,6 +112,30 @@ h3 {
   font-family: Fraunces, Georgia, serif;
 }
 
+h1 {
+  font-size: clamp(1.65rem, 5.5vw, 2.65rem);
+  line-height: 1.12;
+}
+
+h2 {
+  font-size: clamp(1.2rem, 3.8vw, 1.8rem);
+  line-height: 1.2;
+}
+
+h3 {
+  font-size: clamp(1.05rem, 3.2vw, 1.35rem);
+  line-height: 1.25;
+}
+
+p,
+label,
+input,
+select,
+textarea,
+button {
+  font-size: clamp(0.95rem, 2.6vw, 1rem);
+}
+
 button,
 input,
 select,
@@ -119,8 +143,40 @@ textarea {
   font: inherit;
 }
 
+input,
+select,
+textarea {
+  font-size: 16px;
+}
+
 button {
   cursor: pointer;
+}
+
+button,
+a,
+[role="button"] {
+  min-width: 44px;
+  min-height: 44px;
+  touch-action: manipulation;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+@media (hover: none) {
+  button:active,
+  a:active,
+  [role="button"]:active {
+    transform: scale(0.98);
+    transition: transform 120ms ease;
+  }
 }
 
 button:disabled {

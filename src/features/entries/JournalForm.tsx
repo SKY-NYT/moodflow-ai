@@ -138,6 +138,7 @@ export function JournalForm({
             }`}
             value={draft.title}
             onChange={(event) => updateField("title", event.target.value)}
+            inputMode="text"
             onBlur={() =>
               setTouched((current) => ({ ...current, title: true }))
             }
@@ -176,6 +177,7 @@ export function JournalForm({
               : "border-(--card-border)"
           }`}
           value={draft.note}
+          inputMode="text"
           onChange={(event) => updateField("note", event.target.value)}
           onBlur={() => setTouched((current) => ({ ...current, note: true }))}
           placeholder="What happened, how did it affect you, and what would help next?"
@@ -200,6 +202,7 @@ export function JournalForm({
             className="rounded-2xl border border-(--card-border) bg-white px-4 py-3 outline-none transition focus:ring-2 focus:ring-(--brand-soft)"
             value={draft.tags}
             onChange={(event) => updateField("tags", event.target.value)}
+            inputMode="text"
             placeholder="work, sleep, gratitude"
           />
         </label>
