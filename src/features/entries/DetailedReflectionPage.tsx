@@ -23,6 +23,8 @@ interface QaItem {
   createdAt: string;
 }
 
+const EMPTY_QA_HISTORY: QaItem[] = [];
+
 export function DetailedReflectionPage({
   entry,
   onBack,
@@ -30,16 +32,14 @@ export function DetailedReflectionPage({
   onAction,
 }: DetailedReflectionPageProps) {
   const storeHydrated = useJournalStore((state) => state.hasHydrated);
-  const savedReflection = useJournalStore(
-    (state) => state.aiReflections[entry.id] ?? null,
-  );
-  const savedQaHistory = useJournalStore(
-    (state) => state.aiQaHistory[entry.id] ?? [],
-  );
+  const aiReflections = useJournalStore((state) => state.aiReflections);
+  const aiQaHistory = useJournalStore((state) => state.aiQaHistory);
   const setAiReflection = useJournalStore((state) => state.setAiReflection);
   const clearAiReflection = useJournalStore((state) => state.clearAiReflection);
   const setAiQaHistory = useJournalStore((state) => state.setAiQaHistory);
   const clearAiQaHistory = useJournalStore((state) => state.clearAiQaHistory);
+  const savedReflection = aiReflections[entry.id] ?? null;
+  const savedQaHistory = aiQaHistory[entry.id] ?? EMPTY_QA_HISTORY;
   const moodBadgeClass = getMoodBadgeClass(entry.mood);
   const [isEditing, setIsEditing] = useState(false);
   const [loading, setLoading] = useState(false);
