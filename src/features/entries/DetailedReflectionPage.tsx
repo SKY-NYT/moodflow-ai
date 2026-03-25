@@ -116,7 +116,6 @@ export function DetailedReflectionPage({
           ? error.message
           : "Unable to generate AI reflection for this entry.";
       setAiError(message);
-      onAction?.("error", message);
     } finally {
       aiRequestControllerRef.current = null;
       setLoading(false);
@@ -179,7 +178,6 @@ export function DetailedReflectionPage({
           ? error.message
           : "Unable to answer follow-up question right now.";
       setFollowUpError(message);
-      onAction?.("error", message);
     } finally {
       aiRequestControllerRef.current = null;
       setFollowUpLoading(false);
@@ -193,11 +191,11 @@ export function DetailedReflectionPage({
   }
 
   return (
-    <section className="mt-3 flex h-full min-h-0 min-w-0 flex-col overflow-hidden md:mt-4">
-      <div className="mb-3">
+    <section className="no-scrollbar mt-3 flex h-full min-h-0 min-w-0 flex-col overflow-y-auto overflow-x-hidden md:mt-4 md:overflow-hidden">
+      <div className="sticky top-0 z-20 -mx-1 mb-3 border-b border-(--card-border) bg-(--bg-page)/90 px-1 py-1 backdrop-blur md:static md:mx-0 md:border-0 md:bg-transparent md:p-0">
         <button
           type="button"
-          className="rounded-lg border border-(--primary) bg-(--brand-faint) px-3 py-2 text-sm font-medium text-(--primary) transition hover:bg-(--primary) hover:text-white"
+          className="rounded-xl border border-(--primary) bg-(--brand-faint) px-4 py-2.5 text-sm font-semibold text-(--primary) transition active:scale-95 hover:bg-(--primary) hover:text-white"
           onClick={onBack}
         >
           Back to journal
@@ -215,14 +213,14 @@ export function DetailedReflectionPage({
               <div className="flex flex-wrap gap-2">
                 <button
                   type="button"
-                  className="rounded-lg border border-(--card-border) px-3 py-2 text-sm text-(--text-muted)"
+                  className="rounded-xl border border-(--card-border) px-3 py-2.5 text-sm font-medium text-(--text-muted) active:scale-95"
                   onClick={() => setIsEditing(true)}
                 >
                   Edit
                 </button>
                 <button
                   type="button"
-                  className="rounded-lg border border-(--accent-pink) bg-(--accent-pink-soft) px-3 py-2 text-sm text-(--text-primary)"
+                  className="rounded-xl border border-(--accent-pink) bg-(--accent-pink-soft) px-3 py-2.5 text-sm font-medium text-(--text-primary) active:scale-95"
                   onClick={() => onDeleteRequest(entry)}
                 >
                   Delete
@@ -289,7 +287,7 @@ export function DetailedReflectionPage({
           <div className="grid gap-4">
             <button
               type="button"
-              className="rounded-xl bg-(--primary) px-4 py-3 text-sm font-semibold text-white hover:bg-(--primary-hover) disabled:opacity-60"
+              className="rounded-xl bg-(--primary) px-4 py-3 text-sm font-semibold text-white transition active:scale-95 hover:bg-(--primary-hover) disabled:opacity-60"
               disabled={loading}
               onClick={handleAiReflect}
             >
@@ -332,7 +330,7 @@ export function DetailedReflectionPage({
             </div>
             <button
               type="button"
-              className="rounded-2xl border border-(--card-border) bg-white px-4 py-2 text-sm text-(--text-muted)"
+              className="rounded-xl border border-(--card-border) bg-white px-4 py-2.5 text-sm font-semibold text-(--text-muted) transition active:scale-95"
               onClick={() => {
                 aiRequestControllerRef.current?.abort();
                 setAiResult("");
@@ -434,7 +432,7 @@ export function DetailedReflectionPage({
               </p>
               <button
                 type="button"
-                className="rounded-lg border border-(--card-border) px-2 py-1 text-xs text-(--text-muted) hover:bg-(--bg-soft)"
+                className="rounded-lg border border-(--card-border) px-2 py-1 text-xs font-medium text-(--text-muted) active:scale-95 hover:bg-(--bg-soft)"
                 onClick={handleAiReflect}
                 disabled={loading || followUpLoading}
               >
@@ -452,7 +450,7 @@ export function DetailedReflectionPage({
               />
               <button
                 type="button"
-                className="h-14 rounded-xl bg-(--primary) px-4 text-sm font-semibold text-white disabled:opacity-60"
+                className="h-14 rounded-xl bg-(--primary) px-4 text-sm font-semibold text-white transition active:scale-95 disabled:opacity-60"
                 onClick={handleAskFollowUp}
                 disabled={
                   followUpLoading || loading || !followUpQuestion.trim()

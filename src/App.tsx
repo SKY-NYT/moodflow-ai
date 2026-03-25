@@ -166,7 +166,11 @@ export default function App() {
         </button>
       </header>
 
-      <main className="no-scrollbar mt-2 min-h-0 min-w-0 flex-1 overflow-y-auto overflow-x-hidden pb-24 pr-1 md:mt-3 md:pb-0">
+      <main
+        className={`no-scrollbar mt-2 min-h-0 min-w-0 flex-1 overflow-x-hidden pb-[calc(6.25rem+env(safe-area-inset-bottom))] pr-1 md:mt-3 md:pb-0 ${
+          activeEntry ? "overflow-y-hidden" : "overflow-y-auto"
+        }`}
+      >
         {activeEntry ? (
           <DetailedReflectionPage
             entry={activeEntry}
@@ -215,7 +219,7 @@ export default function App() {
       </main>
 
       <nav
-        className="fixed inset-x-0 bottom-3 z-40 px-4 md:hidden"
+        className="fixed inset-x-0 bottom-0 z-40 px-4 pb-[calc(0.75rem+env(safe-area-inset-bottom))] md:hidden"
         aria-label="Mobile navigation"
       >
         <div className="mx-auto flex w-full max-w-md items-center justify-between rounded-2xl border border-(--card-border) bg-(--surface) p-2 shadow-lg backdrop-blur">

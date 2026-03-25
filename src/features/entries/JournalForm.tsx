@@ -106,7 +106,6 @@ export function JournalForm({
     event.preventDefault();
     setTouched({ title: true, note: true });
     if (!isValid) {
-      onAction?.("error", "Please fix the highlighted fields before saving.");
       return;
     }
 
