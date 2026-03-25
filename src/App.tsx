@@ -214,7 +214,10 @@ export default function App() {
         )}
       </main>
 
-      <nav className="fixed inset-x-0 bottom-3 z-40 px-4 md:hidden" aria-label="Mobile navigation">
+      <nav
+        className="fixed inset-x-0 bottom-3 z-40 px-4 md:hidden"
+        aria-label="Mobile navigation"
+      >
         <div className="mx-auto flex w-full max-w-md items-center justify-between rounded-2xl border border-(--card-border) bg-(--surface) p-2 shadow-lg backdrop-blur">
           <button
             type="button"
